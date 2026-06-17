@@ -21,30 +21,6 @@ Predict:
 
 Will the stock price go UP or DOWN tomorrow?
 
-## 📂 Repository Structure
-Stock-Price-Direction-Predictor/
-│
-├── Stock_data_processed.csv      # Processed dataset
-├── X_train.npy                   # Training features
-├── X_test.npy                    # Testing features
-├── y_train.npy                   # Training labels
-├── y_test.npy                    # Testing labels
-│
-├── data_preprocessing.py         # Data preprocessing
-├── feature_engineering.py        # Feature engineering
-├── train_model.py                # Model training & evaluation
-│
-├── scaler.pkl                    # Saved feature scaler
-├── best_model.pkl                # Trained model
-│
-├── Closing_Price.jpeg            # Stock price visualization
-├── features_overview.jpeg        # Feature analysis
-├── model_result.png              # Model performance results
-│
-└── README.md
-
-The repository contains processed datasets, model artifacts, training scripts, and performance visualizations.
-
 ## 🔍 Workflow
 1. Data Collection & Preparation
 Historical stock data is collected.

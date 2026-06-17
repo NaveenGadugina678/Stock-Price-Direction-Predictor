@@ -10,34 +10,34 @@ Predicting stock market behavior is a challenging problem due to market volatili
  
 Given historical stock information:
 
-Open Price
-High Price
-Low Price
-Close Price
-Volume
-Technical Indicators
+Open Price  
+High Price  
+Low Price  
+Close Price  
+Volume  
+Technical Indicators  
 
 Predict:
 
 Will the stock price go UP or DOWN tomorrow?
 
 ## 🔍 Workflow
-1. Data Collection & Preparation
-Historical stock data is collected.
-Missing values are handled.
-Data is cleaned and transformed for modeling.
-2. Feature Engineering
+1. Data Collection & Preparation  
+Historical stock data is collected.  
+Missing values are handled.  
+Data is cleaned and transformed for modeling.  
+2. Feature Engineering  
 
 Technical indicators and derived features are generated from historical price data.
 
 Examples may include:
 
-Moving Averages
-Price Returns
-Rolling Statistics
-Momentum Features
-Volatility Measures
-3. Data Scaling
+Moving Averages  
+Price Returns  
+Rolling Statistics  
+Momentum Features  
+Volatility Measures  
+3. Data Scaling  
 
 Features are normalized using a scaler to improve model performance.
 
@@ -45,50 +45,39 @@ Features are normalized using a scaler to improve model performance.
 
 The classification model is trained to predict stock direction:
 
-Tomorrow Direction:
-1 → Price Goes Up
-0 → Price Goes Down
-5. Evaluation
+Tomorrow Direction:  
+1 → Price Goes Up  
+0 → Price Goes Down  
+5. Evaluation  
 
 Performance is measured using:
 
-Accuracy
-Precision
-Recall
-F1 Score
-Confusion Matrix
-
-## 📊 Results
-
-The trained model successfully learns patterns from historical market data and predicts future price direction with promising performance.
-
-Sample Output
-Actual	Predicted
-UP	UP
-DOWN	DOWN
-UP	DOWN
+Accuracy  
+Precision  
+Recall  
+F1 Score  
+Confusion Matrix  
 
 See:
-
-model_result.png
-Closing_Price.jpeg
-features_overview.jpeg
+model_result.png  
+Closing_Price.jpeg  
+features_overview.jpeg  
 
 for visual analysis and performance insights.
 
 ## 🛠️ Technologies Used
-Python
-NumPy
-Pandas
-Scikit-Learn
-Matplotlib
-Joblib/Pickle
+Python  
+NumPy  
+Pandas  
+Scikit-Learn  
+Matplotlib  
+Joblib/Pickle  
 
 ## ⚙️ Installation
 
 Clone the repository:
 
-git clone https://github.com/NaveenGadugina678/Stock-Price-Direction-Predictor.git
+git clone https://github.com/NaveenGadugina678/Stock-Price-Direction-Predictor.git  
 cd Stock-Price-Direction-Predictor
 
 Install dependencies:
@@ -96,24 +85,24 @@ Install dependencies:
 pip install -r requirements.txt
 
 ## ▶️ Running the Project
-Preprocess Data
-python feature_engineering.py
-Generate Features
-python train_model.py
-Train Model
-python data_preprocessing.py
+Preprocess Data  
+python feature_engineering.py  
+Generate Features  
+python train_model.py  
+Train Model  
+python data_preprocessing.py  
 
 
 📚 Learning Outcomes
 
-This project demonstrates:
+This project demonstrates:  
 
-Financial data preprocessing
-Feature engineering
-Machine Learning classification
-Model evaluation techniques
-Saving and loading trained models
-End-to-end predictive analytics workflow
+Financial data preprocessing  
+Feature engineering  
+Machine Learning classification  
+Model evaluation techniques  
+Saving and loading trained models  
+End-to-end predictive analytics workflow  
 
 ## ⚠️ Disclaimer
 

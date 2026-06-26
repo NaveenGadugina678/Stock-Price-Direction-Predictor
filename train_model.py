@@ -18,7 +18,7 @@ y_test = np.load("y_test.npy")
 
 print(f"Train : {X_train.shape}, Test : {X_test.shape}")
 
-#----Train Model-1 = Logistic Regression
+#----Train Model-1 = Logistic Regression----
 
 lr = LogisticRegression(max_iter = 1000, random_state = 42)
 lr.fit(X_train, y_train)

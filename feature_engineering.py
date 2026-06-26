@@ -39,7 +39,7 @@ print(f"Test date range :  {df.index[split_idx].date()} -> {df.index[-1].date()}
 
 #----Feature Scaling----
 
-#StandardScaler converts each feature to mean = 0 , std = 1.
+#StandardScale(or Z-Score normalization) converts each feature to mean = 0 , std = 1.
 #Without scaling RSI would dominate just because it's large.
 #KEY_RULE : fit scaler only on Train, then transform both train and test.
 #Fitting on test would leak test data.

@@ -58,7 +58,15 @@ Tomorrow Direction:
 - Precision  
 - Recall  
 - F1 Score  
-- Confusion Matrix  
+- Confusion Matrix
+
+## Web App Screenshots
+1. **Dashboard**  
+![Dashboard](./visuals/dashboard.png)  
+2. **Trades**  
+![Dashboard](./visuals/trades.png)  
+3. **Portfolio**  
+![Dashboard](./visuals/portfolio.png)  
 
 **See** :  
 model_result.png  

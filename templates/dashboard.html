@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Dashboard</h1>
+
+<!-- Signal Banner -->
+{% if signal %}
+  <div class="signal-banner {{ 'up' if signal.signal == 1 else 'down' }}">
+    <div>
+      <div class="signal-label {{ 'up' if signal.signal == 1 else 'down' }}">
+        {{ signal.signal_label }}
+      </div>
+      <div class="signal-meta">
+        {{ symbol }} · {{ signal.close }} · {{ signal.date }} · Confidence {{ signal.confidence }}
+      </div>
+    </div>
+    <span class="signal-badge badge-{{ signal.action | lower }}">
+      {{ signal.action }}
+    </span>
+  </div>
+{% else %}
+  <div class="signal-banner none">
+    <div>
+      <div class="signal-label" style="color:var(--muted)">No signal yet</div>
+      <div class="signal-meta">Run the predictor to get today's signal</div>
+    </div>
+    <a href="/run" class="btn btn-blue">▶ Run now</a>
+  </div>
+{% endif %}
+
+<!-- Account Cards -->
+<h2>Account</h2>
+<div class="cards">
+  <div class="card">
+    <div class="card-label">Portfolio value</div>
+    <div class="card-value blue">{{ account.portfolio_value }}</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Cash</div>
+    <div class="card-value">{{ account.cash }}</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Total P&L</div>
+    <div class="card-value {{ 'green' if account.pnl_positive else 'red' }}">
+      {{ account.pnl_str }}
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-label">Buying power</div>
+    <div class="card-value">{{ account.buying_power }}</div>
+  </div>
+</div>
+
+<!-- Current Position -->
+<h2>Current Position · {{ symbol }}</h2>
+{% if position.held %}
+  <div class="cards">
+    <div class="card">
+      <div class="card-label">Shares held</div>
+      <div class="card-value">{{ position.qty }}</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Avg entry price</div>
+      <div class="card-value">{{ position.avg_entry }}</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Current price</div>
+      <div class="card-value blue">{{ position.current }}</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Unrealized P&L</div>
+      <div class="card-value {{ 'green' if position.is_positive else 'red' }}">
+        {{ position.unrealized }}
+      </div>
+    </div>
+  </div>
+{% else %}
+  <div class="card" style="margin-bottom:1.5rem;">
+    <div class="card-label">Position</div>
+    <div style="font-size:14px; color:var(--muted); margin-top:6px;">No open position in {{ symbol }}</div>
+  </div>
+{% endif %}
+
+<!-- Price Chart -->
+{% if dates %}
+<h2>Price history · logged days</h2>
+<div class="chart-box">
+  <canvas id="priceChart" height="80"></canvas>
+</div>
+
+<script>
+const ctx = document.getElementById('priceChart').getContext('2d');
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: {{ dates | tojson }},
+    datasets: [{
+      label: 'AMZN Close ($)',
+      data:  {{ closes | tojson }},
+      borderColor: '#3b82f6',
+      borderWidth: 2,
+      pointBackgroundColor: {{ colors | tojson }},
+      pointRadius: 5,
+      pointHoverRadius: 7,
+      tension: 0.3,
+      fill: false
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: '#a1a1aa', font: { size: 12 } } },
+      tooltip: { mode: 'index', intersect: false }
+    },
+    scales: {
+      x: { ticks: { color: '#a1a1aa', maxTicksLimit: 8 }, grid: { color: 'rgba(255,255,255,0.05)' } },
+      y: { ticks: { color: '#a1a1aa', callback: v => '$'+v }, grid: { color: 'rgba(255,255,255,0.05)' } }
+    }
+  }
+});
+</script>
+{% endif %}
+
+{% endblock %}

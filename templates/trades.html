@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Trade History · {{ symbol }}</h1>
+
+{% if trades %}
+<div class="table-box">
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Close</th>
+        <th>Signal</th>
+        <th>Confidence</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for t in trades | reverse %}
+      <tr>
+        <td>{{ t.date }}</td>
+        <td>{{ t.close }}</td>
+        <td style="color: {{ '#22c55e' if '↑' in t.signal_label else '#ef4444' }};">
+          {{ t.signal_label }}
+        </td>
+        <td>{{ t.confidence }}%</td>
+        <td>
+          <span class="signal-badge badge-{{ t.action | lower }}">
+            {{ t.action }}
+          </span>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+  <div class="empty">No trades logged yet. Run the predictor first.</div>
+{% endif %}
+
+{% endblock %}

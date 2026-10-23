@@ -56,10 +56,10 @@ y_test = y[split_idx + 1:]
 
 scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train_raw)
-X_test = scaler.fit_transform(X_test_raw)
+X_test = scaler.transform(X_test_raw)
 
 print(f"Train Shape : {X_train.shape}, Test Shape : {X_test.shape}")
-print(f"Class Balance -> Up : {y_train.mean()*100:.1f}% Down : {1 - y_train.mean():.1f}%")
+print(f"Class Balance -> Up : {y_train.mean()*100:.1f}% Down : {1 - y_train.mean()*100:.1f}%")
 
 #----Logistic Regression----
 print("\n----Logistic Regression with balanced class----")

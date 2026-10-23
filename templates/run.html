@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Run Predictor</h1>
+
+<div style="margin-bottom: 1.5rem; display:flex; gap:12px; align-items:center;">
+  <a href="/run" class="btn btn-green">▶ Run again</a>
+  <a href="/"    class="btn btn-blue" >← Back to dashboard</a>
+</div>
+
+<h2>Output</h2>
+<div class="output-box">{{ output }}</div>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Portfolio · {{ symbol }}</h1>
+
+<!-- P&L Cards -->
+<h2>Account Summary</h2>
+<div class="cards">
+  <div class="card">
+    <div class="card-label">Portfolio value</div>
+    <div class="card-value blue">{{ account.portfolio_value }}</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Cash available</div>
+    <div class="card-value">{{ account.cash }}</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Total P&L</div>
+    <div class="card-value {{ 'green' if account.pnl_positive else 'red' }}">
+      {{ account.pnl_str }}
+    </div>
+  </div>
+</div>
+
+<!-- Trade Stats -->
+<h2>Trade Statistics</h2>
+<div class="cards">
+  <div class="card">
+    <div class="card-label">Total signals</div>
+    <div class="card-value">{{ total }}</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Buy orders</div>
+    <div class="card-value green">{{ buys }}</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Sell orders</div>
+    <div class="card-value red">{{ sells }}</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Account status</div>
+    <div class="card-value" style="font-size:16px; color:var(--green);">{{ account.status }}</div>
+  </div>
+</div>
+
+<!-- Current position -->
+{% if position.held %}
+<h2>Open Position · {{ symbol }}</h2>
+<div class="cards">
+  <div class="card">
+    <div class="card-label">Shares held</div>
+    <div class="card-value">{{ position.qty }}</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Avg entry price</div>
+    <div class="card-value">{{ position.avg_entry }}</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Current price</div>
+    <div class="card-value blue">{{ position.current }}</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Unrealized P&L</div>
+    <div class="card-value {{ 'green' if position.is_positive else 'red' }}">
+      {{ position.unrealized }}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% endblock %}

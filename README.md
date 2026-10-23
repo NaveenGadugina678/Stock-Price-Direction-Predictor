@@ -21,7 +21,7 @@ Predict:
 
 Will the stock price go **UP** or **DOWN** tomorrow?
 
-## 🔍 Workflow
+## Workflow
 1. **Data Collection & Preparation**  
 Historical stock data is collected.  
 Missing values are handled.  

@@ -22,12 +22,12 @@ Predict:
 Will the stock price go **UP** or **DOWN** tomorrow?
 
 ## 🔍 Workflow
-1. Data Collection & Preparation  
+1. **Data Collection & Preparation**  
 Historical stock data is collected.  
 Missing values are handled.  
 Data is cleaned and transformed for modeling.
  
-2. Feature Engineering  
+2. **Feature Engineering**  
 
   Technical indicators and derived features are generated from historical price data.
 
@@ -39,11 +39,11 @@ Examples may include:
 - Momentum Features  
 - Volatility Measures
 
-3. Data Scaling  
+3. **Data Scaling**  
 
   Features are normalized using a scaler to improve model performance.
 
-4. Model Training
+4. **Model Training**
 
   The classification model is trained to predict stock direction:
 
@@ -51,7 +51,7 @@ Tomorrow Direction:
 1 → Price Goes Up  
 0 → Price Goes Down  
 
-5. Evaluation  
+5. **Evaluation**  
 
   Performance is measured using:  
 - Accuracy  
@@ -88,12 +88,18 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 ## Running the Project
-1. Preprocess Data  
-2. python feature_engineering.py  
-3. Generate Features  
-4. python train_model.py  
-5. Train Model  
-6. python data_preprocessing.py  
+1. Preprocess Data
+```bash
+python feature_engineering.py
+```
+2. Generate Features
+```bash 
+python train_model.py
+```
+3. Train Model
+```bash
+python data_preprocessing.py
+```
 
 
 ## Learning Outcomes
